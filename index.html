@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Ajax Table Test</title>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  
+  <body>
+    <h1>Ajax Table Test</h1>
+
+    <h2>フィルタリング</h2>
+    <h3>スタート時間</h3>
+    <input type="time" id="start-time" max="8:00:00" min="22:00:00" step="600">
+    <h3>エンド時間</h3>
+    <input type="time" id="end-time" max="8:00:00" min="22:00:00" step="600">
+    <h3>設備名</h3>
+    <select name="fac">
+      <option value="会議室A">会議室A</option>
+      <option value="会議室B">会議室B</option>
+    </select>
+
+    <button type="button" name="name" onClick="filtering()">Filtering</button>
+    
+    
+    <h2> テーブル </h2>
+    
+    <table id="test-table">
+      <tbody>
+        <tr>
+          <th>来訪スタート</th>
+          <th>来訪エンド</th>
+          <th>来訪者</th>
+          <th>設備名</th>
+          <th>設備利用スタート</th>
+          <th>設備利用エンド</th>
+        </tr>
+       </tbody>
+     </table>
+  </body>
+</html>
