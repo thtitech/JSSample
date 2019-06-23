@@ -37,8 +37,8 @@ var finfo5 = new FacilityInfo("13:00", "14:00", "会議室B", vinfo2);
 vinfo2.addFac(finfo4);
 vinfo2.addFac(finfo5);
 
-var vinfoList = [vinfo1, vinfo2, vinfo3];
-var finfoList = [finfo1, finfo2, finfo3, finfo4, finfo5];
+var g_vinfoList = [vinfo1, vinfo2, vinfo3];
+var g_finfoList = [finfo1, finfo2, finfo3, finfo4, finfo5];
 
 var fColumNum = 3;
 var vColumNum = 3;
@@ -77,9 +77,10 @@ function addFinfo(rows, finfo){
     return rows;
 }
 
-$(document).ready(function(){
-    var targetTable = $("#test-table");
-    var rows = "";
+function makeTable(vinfoList, finfoList){
+    //var targetTable = $("#test-table");
+    $("#test-table").remove();
+    var rows = "<table id='test-table'>";
     // make rows
     for(var i = 0; i < vinfoList.length; i++){
         rows += "<tr>";
@@ -112,7 +113,12 @@ $(document).ready(function(){
             }
         }
     }
+    rows += "</table>"
+    //targetTable.append(rows);
+    $("body").append(rows);
+}
 
-    targetTable.append(rows);
+$(document).ready(function(){
+    makeTable(g_vinfoList, g_finfoList)
 });
 
