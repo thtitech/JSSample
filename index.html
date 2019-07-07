@@ -4,39 +4,145 @@
     <title>Ajax Table Test</title>
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="VisitorInfo.js"></script>
+    <script type="text/javascript" src="FacilityInfo.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </head>
   
   <body>
     <h1>Ajax Table Test</h1>
 
-    <h2>フィルタリング</h2>
-    <h3>スタート時間</h3>
-    <input type="time" id="start-time" max="8:00:00" min="22:00:00" step="600">
-    <h3>エンド時間</h3>
-    <input type="time" id="end-time" max="8:00:00" min="22:00:00" step="600">
-    <h3>設備名</h3>
+    <h2>来訪予定</h2>
+    <label>スタート時間</label>
+    <input type="text" id="startH"> : <input type="text" id="startM">
+    <label>エンド時間</label>
+    <input type="text" id="endH"> : <input type="text" id="endM">
+    <br>
+    <label>設備名</label>
     <select name="fac">
-      <option value="会議室A">会議室A</option>
-      <option value="会議室B">会議室B</option>
+      <option value="-1"></option>
+      <option value="1">会議室A</option>
+      <option value="2">会議室B</option>
     </select>
 
-    <button type="button" name="name" onClick="filtering()">Filtering</button>
-    
+    <button type="button" id="search-btn" >検索</button>
     
     <h2> テーブル </h2>
     
-    <table id="test-table">
+    <table id="info-table" style="display:none;">
       <tbody>
         <tr>
+          <th>来訪Id</th>
           <th>来訪スタート</th>
           <th>来訪エンド</th>
           <th>来訪者</th>
+          <th>来訪者数</th>
+          <th>来訪担当者</th>
+          <th>来訪担当者連絡先</th>
+          <th>設備ID<th>
           <th>設備名</th>
           <th>設備利用スタート</th>
           <th>設備利用エンド</th>
         </tr>
+        <tr>
+          <td>1</td>
+          <td>10:00</td>
+          <td>15:00</td>
+          <td>太郎</td>
+          <td>5</td>
+          <td>長瀬</td>
+          <td>001</td>
+          <td>1</td>
+          <td>会議室A</td>
+          <td>10:00</td>
+          <td>12:00</td>
+        </tr>
+        
+        <tr>
+          <td>1</td>
+          <td>10:00</td>
+          <td>15:00</td>
+          <td>太郎</td>
+          <td>5</td>
+          <td>長瀬</td>
+          <td>001</td>
+          <td>2</td>
+          <td>会議室B</td>
+          <td>12:00</td>
+          <td>13:00</td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>10:00</td>
+          <td>15:00</td>
+          <td>太郎</td>
+          <td>5</td>
+          <td>長瀬</td>
+          <td>001</td>
+          <td>1</td>
+          <td>会議室A</td>
+          <td>13:00</td>
+          <td>14:00</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>12:00</td>
+          <td>16:00</td>
+          <td>次郎</td>
+          <td>3</td>
+          <td>今泉</td>
+          <td>002</td>
+          <td>1</td>
+          <td>会議室A</td>
+          <td>12:00</td>
+          <td>13:00</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>12:00</td>
+          <td>16:00</td>
+          <td>次郎</td>
+          <td>3</td>
+          <td>今泉</td>
+          <td>002</td>
+          <td>2</td>
+          <td>会議室B</td>
+          <td>13:00</td>
+          <td>14:00</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>16:00</td>
+          <td>18:00</td>
+          <td>三郎</td>
+          <td>10</td>
+          <td>今泉</td>
+          <td>002</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
        </tbody>
-     </table>
+    </table>
+
+    <table id="show-table">
+      <tbody>
+        <tr>
+          <th>来訪時間</th>
+          <th>来訪者</th>
+          <th>来訪者数</th>
+          <th>来訪担当者</th>
+          <th>来訪担当者連絡先</th>
+          <th>設備名</th>
+          <th>設備利用時間</th>
+        </tr>
+
+      </tbody>
+    </table>
   </body>
 </html>
